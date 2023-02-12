@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace="com.bishe.dao.UserDAO"与dao做绑定-->
+<mapper namespace="com.bishe.dao.UserDAO">
+<!--    save与dao里面save绑定，User是绑定的实体 ，useGeneratedKeys="true"自增-->
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into s_user values (#{id},#{number},#{password},#{username},#{email},#{state},#{registTime})
+    </insert>
+
+    <!--findByUserName-->
+    <select id="findByUserName" parameterType="String" resultType="User">
+        select id,number,password,username,email,state,registTime
+        from s_user where username=#{username}
+    </select>
+
+</mapper>

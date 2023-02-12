@@ -1,0 +1,61 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bishe.dao.GsDAO">
+    <select id="findAll" resultType="gs">
+        select id,guoshuname,photo,price from gs_shops
+    </select>
+    <select id="findOne" parameterType="String"  resultType="gs">
+        select id,guoshuname,photo,price from gs_shops where id=#{id}
+    </select>
+    <select id="findAllGs" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=0
+    </select>
+    <select id="findAllHx" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=1
+    </select>
+    <select id="findAllMeat" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where  pid=2
+    </select>
+    <select id="findAllRice" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=3
+    </select>
+    <select id="findAllSnack" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=4
+    </select>
+    <select id="findAllCloth" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=5
+    </select>
+    <select id="findAllPants" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=6
+    </select>
+    <select id="findAllSkirt" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=7
+    </select>
+    <select id="findAllShoe" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=8
+    </select>
+    <select id="findAllTv" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=9
+    </select>
+    <select id="findAllCook" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=10
+    </select>
+    <select id="findAllTable" resultType="Gs">
+        select id,guoshuname,photo,price from gs_shops where pid=11
+    </select>
+
+    <select id="findById" resultType="Gs">
+        select * from gs_shops where id=#{id}
+    </select>
+
+    <select id="getGsCount" resultType="Integer" parameterType="String">
+        select count(1) from gs_shops
+        where guoshuname like "%"#{guoshuname}"%"
+    </select>
+
+    <select id="getGsPages" resultType="Gs">
+        select * from gs_shops
+        where guoshuname like "%"#{guoshuname}"%"
+         limit  #{startIndex},#{pageSize}
+    </select>
+
+</mapper>
